@@ -1,5 +1,8 @@
 package com.devs.lojavirtual.model;
 
+import org.hibernate.validator.constraints.br.CNPJ;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
@@ -9,11 +12,21 @@ import jakarta.persistence.Table;
 
 	private static final long serialVersionUID = 1L;
 
+	@CNPJ(message = "Cnpj está inválido")
+	@Column(nullable = false)
 	private String cnpj;
+	
+	@Column(nullable = false)
 	private String inscEstadual;
+	
 	private String inscMunicipal;
+	
+	@Column(nullable = false)
 	private String nomeFantasia;
+	
+	@Column(nullable = false)
 	private String razaoSocial;
+	
 	private String categoria;
 
 	public String getCnpj() {
